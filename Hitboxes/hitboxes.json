@@ -1,0 +1,40 @@
+{
+	"player" :
+		{
+			"active" :"still",
+			"punch" : [
+				{
+					"label" : "body",
+					"x" : 30,
+					"y" : 15,
+					"width" : 110,
+					"height" : 160,
+					"type" : "hitbox",
+					"start" : 0,
+					"end" : 2
+				} ,
+				{
+					"label" : "punch",
+					"x" : 140,
+					"y" : 75,
+					"width" : 35,
+					"height" : 38,
+					"type" : "hurtbox",
+					"start" : 1,
+					"end" : 2
+				}
+			],
+			"still" : [
+				{
+					"label" : "body",
+					"x" : 30,
+					"y" : 15,
+					"width" : 110,
+					"height" : 160,
+					"type" : "hitbox",
+					"start" : 0,
+					"end" : 2
+				} 
+			]
+	} 
+}
