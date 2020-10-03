@@ -3,9 +3,11 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 #include <fstream>
+#include <limits>
+#include <cmath>
 #include <iostream>
 #include "D:/CppLibs/nlohmann/json.hpp"
-
+#define M_PI 3.14159265358979323846
 class Hitbox;
 
 class Hitboxed
@@ -39,6 +41,7 @@ private:
 	float left, right;
 	float top, bottom;
 	bool flipped;
+	float angle;
 
 public:
 
@@ -69,5 +72,9 @@ public:
     bool getFlipped() const;
 
     sf::Vector2f getAnchor() const;
+
+    float getAngle() const;
+    void setAngle(float angle);
+
 };
 

@@ -17,7 +17,7 @@ int main()
 	p2.activeHitbox = "still";
 	p2.hitboxes = a;
 
-	p2.moveHitboxes(sf::Vector2f(250, 0));
+	p2.moveHitboxes(sf::Vector2f(250, 100));
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Window");
 
 	while(window.isOpen())
