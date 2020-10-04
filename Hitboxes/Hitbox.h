@@ -18,6 +18,9 @@ public:
 	void moveHitboxes(sf::Vector2f v);
 	void setPosHitboxes(sf::Vector2f pos);
 	void renderHitboxes(sf::RenderTarget& target);
+	void setAngleHitboxes(double degrees);
+	void rotateHitboxes(double degrees);
+	void setActiveHitbox(std::string label);
 };
 
 class Hitbox
@@ -41,7 +44,7 @@ private:
 	float left, right;
 	float top, bottom;
 	bool flipped;
-	float angle;
+	double angle;
 
 public:
 
@@ -53,12 +56,14 @@ public:
 
     std::string getLabel() const;
 
+	void setType(std::string type);
     std::string getType() const;
 
     int getStart() const;
 
     int getEnd() const;
 
+	void setSize(sf::Vector2f size);
     sf::Vector2f getSize() const;
 
     float getLeft() const;
@@ -73,8 +78,9 @@ public:
 
     sf::Vector2f getAnchor() const;
 
-    float getAngle() const;
-    void setAngle(float angle);
+	double getAngle() const;
+    void setAngle(double degrees);
+	void rotate(double degrees);
 
 };
 

@@ -209,6 +209,11 @@ std::string Hitbox::getLabel() const
     return label;
 }
 
+void Hitbox::setType(std::string type)
+{
+	this->type = type;
+}
+
 std::string Hitbox::getType() const
 {
     return type;
@@ -222,6 +227,15 @@ int Hitbox::getStart() const
 int Hitbox::getEnd() const
 {
     return end;
+}
+
+void Hitbox::setSize(sf::Vector2f size)
+{
+	this->size = size;
+	bottom = anchor.y + pos.y + size.y;
+	top = anchor.y + pos.y;
+	right = anchor.x + pos.x + size.x;
+	left = anchor.x + pos.x;
 }
 
 sf::Vector2f Hitbox::getSize() const
@@ -290,18 +304,50 @@ void Hitboxed::renderHitboxes(sf::RenderTarget& target)
 	}
 }
 
+void Hitboxed::setAngleHitboxes(double degrees)
+{
+	for (auto& f : hitboxes)
+	{
+		for (Hitbox& hitbox : f.second)
+		{
+			hitbox.setAngle(degrees);
+		}
+	}
+}
+
+void Hitboxed::rotateHitboxes(double degrees)
+{
+	for (auto& f : hitboxes)
+	{
+		for (Hitbox& hitbox : f.second)
+		{
+			hitbox.setAngle(hitbox.getAngle() + degrees);
+		}
+	}
+}
+
+void Hitboxed::setActiveHitbox(std::string label)
+{
+	activeHitbox = label;
+}
+
 sf::Vector2f Hitbox::getAnchor() const
 {
     return anchor;
 }
 
 
-float Hitbox::getAngle() const
+double Hitbox::getAngle() const
 {
     return angle;
 }
 
-void Hitbox::setAngle(float angle)
+void Hitbox::setAngle(double degrees)
 {
-    this->angle = angle;
+    this->angle = degrees;
+}
+
+void Hitbox::rotate(double degrees)
+{
+	angle = getAngle() + degrees;
 }

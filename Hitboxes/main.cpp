@@ -23,6 +23,7 @@ int main()
 	while(window.isOpen())
 	{
 		p2.moveHitboxes(sf::Vector2f(-0.01, 0));
+		p2.rotateHitboxes(-0.05);
 		if (Hitbox::doesHit(&p1, &p2))
 			cout << "ok" << endl;
 		window.clear();
